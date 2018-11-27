@@ -16,4 +16,4 @@ Route::get('/', function () {
 
 
 });
-Route::get('/choose', function () {
+Route::get('/choose','PostchooseController@getfirst');

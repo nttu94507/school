@@ -10,6 +10,6 @@ class Postclass extends Model
     protected $fillable = ['classname','classtime','classaddress'];
     //
     public function post_class(){
-        return $this->hasmany(Postchoose::class,'postclass_id','classname');
+        return $this->hasmany(Postschoose::class,'classname','postclass_id');
     }
 }
