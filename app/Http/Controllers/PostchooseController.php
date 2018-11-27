@@ -9,13 +9,26 @@ use app\model\Poststudent;
 
 class PostchooseController extends Controller
 {
-    //
-    public function getfirst(){
-        $postchoose = Postchoose::first();
-        $choosestudent = $postchoose->Post_student;
-        $chooseclass = $postchoose->Post_class;
-        echo $chooseclass;
-        echo $choosestudent;
+    
+    // public function getfirst(){
+    //     $postchoose = Postchoose::first();
+    //     $choosestudent = $postchoose->Post_student;
+    //     $chooseclass = $postchoose->Post_class;
+    //     echo json_encode($chooseclass);
+    //     //echo $choosestudent;
+    //     $stuname = $choosestudent->studentname;
+    //     $date = $postchoose->updated_at;
+    //     $claname =$chooseclass->classname;
+        
+    //     return view('school',$stuname);
+    
+    
+     
+    public function getall(){
+        $postschoose = \app\model::all();
+        // return view('school',compact($postschoose));
+        echo $postschoose;
     }
 
 }
+?>
