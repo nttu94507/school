@@ -9,6 +9,6 @@ class Poststudent extends Model
     protected $fillable = ['studentname','gender','phone','email'];
     //
     public function post_student(){
-        return $this->hasmany(Postchoose::class,'studentname','poststudent_id');
+        return $this->hasMany(Postchoose::class,'id');
     }
 }

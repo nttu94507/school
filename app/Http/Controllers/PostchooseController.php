@@ -12,7 +12,7 @@ class PostchooseController extends Controller
         $postchoose = Postchoose::first();
         $choosestudent = $postchoose->Post_student;
         $chooseclass = $postchoose->Post_class;
-        echo $chooseclass;
+        //echo $chooseclass;
         echo $choosestudent;
     }
 
