@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Postchoose;
+use app\model\Postclass;
+use app\model\Poststudent;
 
 class PostchooseController extends Controller
 {
@@ -12,7 +14,7 @@ class PostchooseController extends Controller
         $postchoose = Postchoose::first();
         $choosestudent = $postchoose->Post_student;
         $chooseclass = $postchoose->Post_class;
-        //echo $chooseclass;
+        echo $chooseclass;
         echo $choosestudent;
     }
 

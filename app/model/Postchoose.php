@@ -11,12 +11,12 @@ class Postchoose extends Model
     //protected $fillable = []
     //
     public function Post_student(){
-        return $this->belongsTo(Poststudent::class,'poststudent_id','id');
+        return $this->belongsTo(Poststudent::class,'poststudents_id','id');
         
 
     }
      public function Post_class(){
-        return $this->belongsTo(Postsclass::class,'postclass_id','id');
+        return $this->belongsTo(Postclass::class,'postclasss_id','id');
     
     }
 
