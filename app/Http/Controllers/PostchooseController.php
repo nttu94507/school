@@ -26,13 +26,38 @@ class PostchooseController extends Controller
      
     public function getall(){
         $postschoose = Postchoose::all();
-        $info = compact($postschoose);
+        //$info = compact($postschoose);
         // return view('school',compact($postschoose));
 
+        // $class_info = [];
+
+        // $i = 0;
+        // foreach( $postschoose as $item )  {
+        //     $class_info[$i] = $item;
+        //     $class_info[$i]['student'] = $item->Post_student;
+        //     $class_info[$i]['classinfo'] = $item->Post_class;
+        //     $i++;
+        // }
+
+        // foreach( $postschoose as $item) {
+        //     $view_id = $item->id;
+        //     $view_student = $item->poststudents_id;
+        //     $view_class = $item->postclasss_id;
+        //     $view =['view_id'=>$view_id,'view_student'=>$view_student,'view_class'=>$view_class];
+        // }
+
          //cho $postschoose;
-         $data = [ 'postschoose'=>$postschoose];
+         $data = [ 'data'=>$postschoose];//'postschoose'=>$postschoose,
+        //  'title'=>'選課表',
+        //     'view_id'=>$view_id,'view_student'=>$view_student,'view_class'=>$view_class
+        // ];
+        
         return view('school',$data);
     }
+
+    
+
+    
 
 }
 ?>

@@ -67,20 +67,26 @@
         </style>
     </head>
     <body>
+    
        <table>
             <tr>
                 <td>姓名</td>
                 <td>課程</td>
                 <td>時間</td>
+                <td></td>
+                <td></td>
+
+
             </tr>
-            @foreach($postschoose as $item)
+            @foreach($data as $item)
             <tr>
 
-                <td>{{$item->id}}</td>
-                <td>{{$item->poststudents_id}}</td>
-                <td>{{$item->postclasss_id}}</td>
+                <td>{{$item->Post_student->studentname}}</td>
+                <td>{{$item->Post_class->classname}}</td>
+                <td>{{$item->updated_at}}</td>
             </tr>
             @endforeach
+            
 
     </table>
 
