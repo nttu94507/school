@@ -73,14 +73,14 @@ use app\Http\Controllers\PostchooseController;
                 <td>課程</td>
                 <td>時間</td>
             <tr>
-            
+            @foreach(nttu94507 as postchooses)
             <tr>
-                <td>{{$id}}</td>
-                <td>{{$postschoose->postclasss_id}}</td>
-                <td>{{$postschoose->update_at}}</td>
+                <td>{{postchooses->poststudent_id}}</td>
+                <td>{{postchooses->postclass_id}}</td>
+                <td>{{postchooses->update_at}}</td>
                 
             </tr>
-            
+            @endforeach
         </form>
 
     </body>

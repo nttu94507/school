@@ -25,9 +25,10 @@ class PostchooseController extends Controller
     
      
     public function getall(){
-        $postschoose = \app\model::all();
+        $postschoose = Postchoose::get();
         // return view('school',compact($postschoose));
-        echo $postschoose;
+         //echo $postschoose;
+        return view('school',$postschoose);
     }
 
 }
