@@ -80,6 +80,7 @@ use app\Http\Controllers\PostchooseController;
                 <td>{{$item->postclasss_id}}</td>
             </tr>
             @endforeach
+            
     </table>
 
     </body>
