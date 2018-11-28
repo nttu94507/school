@@ -28,8 +28,10 @@ class PostchooseController extends Controller
         $postschoose = Postchoose::all();
         $info = compact($postschoose);
         // return view('school',compact($postschoose));
-         echo $info;
-        // return view('school',$info);
+
+         //cho $postschoose;
+         $data = [ 'postschoose'=>$postschoose];
+        return view('school',$data);
     }
 
 }
