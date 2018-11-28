@@ -65,30 +65,46 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script>
+
+        </script>
     </head>
     <body>
-    
-       <table>
+    <input type=button value="新增">
+       <table border=1>
+       
             <tr>
+                <td>ID</td>
                 <td>姓名</td>
                 <td>課程</td>
                 <td>時間</td>
-                <td></td>
-                <td></td>
+                
+                <td>修改</td>
+                <td>刪除</td>
 
 
             </tr>
             @foreach($data as $item)
             <tr>
-
+                <td>{{$item->id}}</td>
                 <td>{{$item->Post_student->studentname}}</td>
                 <td>{{$item->Post_class->classname}}</td>
                 <td>{{$item->updated_at}}</td>
+
+                <td><button name="modify">修改</button></td>
+                <td><a href="/choose/delete/id">刪除</a></td>
             </tr>
             @endforeach
-            
+
 
     </table>
-
+    <form action = "/choose" method = "POST">
+            id:<input type ="int" name ="id"><br>
+            name:<input type ="text" name ="name"><br>
+            class:<input type ="text" name ="class"><br>
+            <input type=submit value="SEND">
+    </form>
+            
     </body>
+
 </html>

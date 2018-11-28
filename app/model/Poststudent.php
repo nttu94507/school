@@ -11,4 +11,6 @@ class Poststudent extends Model
     public function post_choose(){
         return $this->hasMany(Postchoose::class,'poststudents_id','id');
     }
+    
+        
 }

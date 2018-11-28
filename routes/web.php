@@ -17,4 +17,5 @@ Route::get('/', function () {
 
 });
 Route::get('/choose','PostchooseController@getall');
-
+Route::post('/choose','PostchooseController@adddate');
+Route::post('/choose/delete/{id}','PostchooseController@delete');

@@ -55,9 +55,24 @@ class PostchooseController extends Controller
         return view('school',$data);
     }
 
-    
+    public function id(){
+        $name = $_POST['studentname'];
+        $class = $POSt['classname'];
+    }
 
-    
+    public function adddate(Request $request){
+        $data = $request->input();
+        //$data->studentname;
 
+dd($data);
+    // echo "id=".$_POST['addid'];
+    // echo "name=".$_POST['addname'];
+    // echo "class=".$_POST['addclass'];
+    }
+    public function delete($id){
+        $class = Postchoose::where('id',$id)->first();
+        $class->delete();
+
+    }
 }
 ?>
