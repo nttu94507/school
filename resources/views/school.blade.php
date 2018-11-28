@@ -1,5 +1,5 @@
 <?php
-use app\Http\Controllers\PostchooseController;
+//use app\Http\Controllers\PostchooseController;
 ?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -75,9 +75,18 @@ use app\Http\Controllers\PostchooseController;
             </tr>
             @foreach($postschoose as $item)
             <tr>
+<<<<<<< HEAD
+            @foreach($postschoose as $info)
+            <tr>
+                <td>{{$info->poststudent_id}}</td>
+                <td>{{$info->postclass_id}}</td>
+                <td>{{$info->update_at}}</td>
+                
+=======
                 <td>{{$item->id}}</td>
                 <td>{{$item->poststudents_id}}</td>
                 <td>{{$item->postclasss_id}}</td>
+>>>>>>> c6be786510802abc9915d338ed5984ac1fc67339
             </tr>
             @endforeach
             
