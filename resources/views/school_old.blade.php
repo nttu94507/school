@@ -1,9 +1,13 @@
+<?php
+//use app\Http\Controllers\PostchooseController;
+?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <title>Laravel</title>
 
         <!-- Fonts -->
@@ -62,68 +66,34 @@
                 margin-bottom: 30px;
             }
         </style>
+        <script>
+
+        </script>
     </head>
     <body>
-    NEW
-    <input type=button value="新增">
-       <table border=1>
-       
-            <tr>
-                <td>ID</td>
-                <td>姓名</td>
-                <td>課程</td>
-                <td>時間</td>
-                
-                <td>修改</td>
-                <td>刪除</td>
-
-
-            </tr>
-            <script>
-            <!--
-            function abcd(id){
-                location.href='/choose/'+id;
-            }
-            //-->
-            </script>
-            @foreach($data as $item)
-            <tr>
-                <td>{{$item->id}}</td>
-                <td>{{$item->Post_student->studentname}}</td>
-                <td>{{$item->Post_class->classname}}</td>
-                <td>{{$item->updated_at}}</td>
-
-                <td><button name="modify" onClick="location.href='/choose/{{$item->id}}' ">修改</button></td>
-                <td><a href="/choose/delete/{{$item->id}}">刪除</a></td>
-            </tr>
-            @endforeach
-
-
-    </table>
-    
-    <form action = "/choose" method = "POST">
+    <form action = "/choose/update" method = "POST">
     @csrf
-            id:<input type ="int" name ="id"><br>,<!--
+            id:<input type ="int" name ="id" value="{{$chose->id}}"><br>,<!--
             name:<input type ="text" name ="poststudent_id"><br>
             class:<input type ="text" name ="postclass_id"><br>
             -->
         
             <select name="poststudent_id">
-                @foreach($poststudents as $student)
-                <option value="{{ $student->id }}">{{ $student->studentname }}</option>
+                @foreach($stucho as $student)
+                <option value="{{ $student->id }}" <?php if($student->id == $chose->poststudents_id) echo "selected";?> >{{ $student->studentname }}</option>
                 
                 @endforeach
             </select>    
             <select name="postclass_id">
-                @foreach($postclasses as $clsaa)
-                <option value="{{ $clsaa->id }}">{{ $clsaa->classname }}</option>
+                @foreach($clacho as $clsaa)
+                <option value="{{ $clsaa->id }}" <?php if($clsaa->id == $chose->postclasss_id) echo "selected";?> >{{ $clsaa->classname }}</option>
                 @endforeach
             </select>   
 
             <input type=submit value="SEND">
            
     </form>
-            
+
     </body>
 
 </html>

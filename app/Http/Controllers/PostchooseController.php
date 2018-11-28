@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\model\Postchoose;
-use app\model\Postclass;
-use app\model\Poststudent;
+use App\model\Postclass;
+use App\model\Poststudent;
 
 class PostchooseController extends Controller
 {
@@ -47,11 +47,24 @@ class PostchooseController extends Controller
         // }
 
          //cho $postschoose;
-         $data = [ 'data'=>$postschoose];//'postschoose'=>$postschoose,
+
+
+
+         
+
+         /****
+          * add postclass , poststudent 
+          ****/
+          $poststudents = Poststudent::all();
+          $postclasses = Postclass::all();
+
+
+
         //  'title'=>'選課表',
         //     'view_id'=>$view_id,'view_student'=>$view_student,'view_class'=>$view_class
         // ];
-        
+
+        $data = [ 'data'=>$postschoose,'poststudents'=>$poststudents,'postclasses'=>$postclasses];//'postschoose'=>$postschoose,
         return view('school',$data);
     }
 
@@ -62,9 +75,21 @@ class PostchooseController extends Controller
 
     public function adddate(Request $request){
         $data = $request->input();
+        // echo $data['poststudent_id'];
+        // dd($data);
+        $postchoose = new Postchoose();
+        $postchoose->poststudents_id = $data['poststudent_id'];
+        $postchoose->postclasss_id =  $data['postclass_id'];
+        $postchoose->save();
+       
+        return redirect("/choose");
+
+
+
+
         //$data->studentname;
 
-dd($data);
+
     // echo "id=".$_POST['addid'];
     // echo "name=".$_POST['addname'];
     // echo "class=".$_POST['addclass'];
@@ -72,7 +97,30 @@ dd($data);
     public function delete($id){
         $class = Postchoose::where('id',$id)->first();
         $class->delete();
+        // echo $id;
+        return redirect("/choose");
 
+    }
+
+    public function updateForm($id){
+        $chose = Postchoose::find($id);
+        $poststudents = Poststudent::all();
+        $postclasses = Postclass::all();
+        
+        $selelist = ['chose'=>$chose,'stucho'=>$poststudents,'clacho'=>$postclasses];
+
+        return view('school_old',$selelist);
+        
+    }
+
+    public function update(Request $request) {
+        $data = $request->input();
+        $id = $data['id'];
+        $chose = Postchoose::find($id);
+        $chose->poststudents_id = $data['poststudent_id'];
+        $chose->postclasss_id =  $data['postclass_id'];
+        $chose->save();
+        return redirect("/choose");
     }
 }
 ?>

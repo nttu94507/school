@@ -19,10 +19,6 @@ class Postchoose extends Model
         return $this->belongsTo(Postclass::class,'postclasss_id','id');
     
     }
-    public function addnew(){
-        $sql = "
-    }
-
 }
 ?>
 
