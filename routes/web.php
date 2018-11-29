@@ -21,3 +21,8 @@ Route::post('/choose','PostchooseController@adddate');
 Route::get('/choose/delete/{id}','PostchooseController@delete');
 Route::get('/choose/{id}','PostchooseController@updateForm');
 Route::post('/choose/update','PostchooseController@update');
+Route::post('/addnewstu','PostchooseController@addnewstu');
+Route::get('/addnewstu', function () {
+    return view('addnewstu');
+});
+Route::post('/addnewcla','PostchooseController@addnewcla');

@@ -1,12 +1,8 @@
-<?php
-//use app\Http\Controllers\PostchooseController;
-?>
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
 
@@ -66,34 +62,16 @@
                 margin-bottom: 30px;
             }
         </style>
-        <script>
-
-        </script>
     </head>
     <body>
-    <form action = "/choose/update" method = "POST">
-    @csrf
-            id:<input type ="int" name ="id" value="{{$chose->id}}"><br>,<!--
-            name:<input type ="text" name ="poststudent_id"><br>
-            class:<input type ="text" name ="postclass_id"><br>
-            -->
-        
-            <select name="poststudent_id">
-                @foreach($stucho as $student)
-                <option value="{{ $student->id }}" <?php if($student->id == $chose->poststudents_id) echo "selected";?> >{{ $student->studentname }}</option>
-                @endforeach
-                
-            </select>    
-            <select name="postclass_id">
-                @foreach($clacho as $clsaa)
-                <option value="{{ $clsaa->id }}" <?php if($clsaa->id == $chose->postclasss_id) echo "selected";?> >{{ $clsaa->classname }}</option>
-                @endforeach
-            </select>   
+        <form action = "/addnewstu" method = "POST">
+        姓名：<input type="text" name = "stuname"><br>
+        性別：<input type="text" name = "stugen"><br>
+        電話：<input type="text" name = "stupho"><br>
+        Email:<input type="text" name = "stuema"><br>
+        <input type = "submit" value = "SEND">
+            
 
-            <input type=submit value="SEND">
-           
-    </form>
-
+        </form>
     </body>
-
 </html>

@@ -122,5 +122,19 @@ class PostchooseController extends Controller
         $chose->save();
         return redirect("/choose");
     }
+
+    public function addnewstu(Request $request) {
+        $stuinfo = $request->input();
+        // dd($stuinfo);
+        $newstu = new Poststudent;
+        $newstu->studentname = $stuinfo['stuname'];
+        $newstu->gender = $stuinfo['stugen'];
+        $newstu->phone = $stuinfo['stupho'];
+        $newstu->email = $stuinfo['stuema'];
+        $newstu->save();
+
+        return redirect("/choose");
+    }
+
 }
 ?>

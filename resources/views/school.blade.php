@@ -65,7 +65,7 @@
     </head>
     <body>
     NEW
-    <input type=button value="新增">
+    <input type=button value="新增" onClick = "location.href = '/addnewstu' ">
        <table border=1>
        
             <tr>
