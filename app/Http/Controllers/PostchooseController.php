@@ -135,6 +135,17 @@ class PostchooseController extends Controller
 
         return redirect("/choose");
     }
+    public function addnewcla(Request $request) {
+        $clainfo = $request->input();
+        // dd($clainfo);
+        $newcla = new Postclass;
+        $newcla->classname = $clainfo['claname'];
+        $newcla->classtime = $clainfo['clatime'];
+        $newcla->classaddress = $clainfo['claaddress'];
+        $newcla->save();
+
+        return redirect("/choose");
+    }
 
 }
 ?>

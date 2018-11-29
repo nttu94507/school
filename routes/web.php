@@ -26,3 +26,6 @@ Route::get('/addnewstu', function () {
     return view('addnewstu');
 });
 Route::post('/addnewcla','PostchooseController@addnewcla');
+Route::get('/addnewcla', function () {
+    return view('addnewcla');
+});

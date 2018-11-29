@@ -65,7 +65,8 @@
     </head>
     <body>
     NEW
-    <input type=button value="新增" onClick = "location.href = '/addnewstu' ">
+    <input type=button value="新增學生" onClick = "location.href = '/addnewstu' ">
+    <input type=button value="新增課程" onClick = "location.href = '/addnewcla' ">
        <table border=1>
        
             <tr>
@@ -103,7 +104,7 @@
     
     <form action = "/choose" method = "POST">
     @csrf
-            id:<input type ="int" name ="id"><br>,<!--
+            <!--id:<input type ="int" name ="id"><br>,
             name:<input type ="text" name ="poststudent_id"><br>
             class:<input type ="text" name ="postclass_id"><br>
             -->
@@ -116,7 +117,7 @@
             </select>    
             <select name="postclass_id">
                 @foreach($postclasses as $clsaa)
-                <option value="{{ $clsaa->id }}">{{ $clsaa->classname }}</option>
+                <option value="{{ $clsaa->id }}">{{ $clsaa->classname }}{{$clsaa->classtime}}</option>
                 @endforeach
             </select>   
 
