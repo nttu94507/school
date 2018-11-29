@@ -29,3 +29,7 @@ Route::post('/addnewcla','PostchooseController@addnewcla');
 Route::get('/addnewcla', function () {
     return view('addnewcla');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
