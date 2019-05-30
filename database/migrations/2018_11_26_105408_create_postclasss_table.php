@@ -15,10 +15,10 @@ class CreatePostclasssTable extends Migration
     {
         Schema::create('postclasss', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('classname');
             $table->date('classtime');
             $table->string('classaddress');
+            $table->timestamps();
         });
     }
 
