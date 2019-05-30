@@ -3,13 +3,14 @@
 namespace App\model;
 use Postchoose;
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Postclass extends Model
 {
     
-    protected $fillable = ['classname','classtime','classaddress'];
+   
     //
-    public function post_class(){
-        return $this->hasmany(Postchoose::class,'postclasss_id','id');
+    public function post_class(Request $request){
+       dd($request);
     }
 }

@@ -15,14 +15,15 @@ Route::group(['prefix' => 'school'], function () {
 
 });
     Route::get('/', function () {
-        return view('welcome');
+        // return view('welcome');
+        return redirect('choose');
     });
-    Route::get('/choose','PostchooseController@getall');
+    Route::get('/choose','PostchooseController@getall')->name('show_stu');
     Route::post('/choose','PostchooseController@adddate');
     Route::get('/choose/delete/{id}','PostchooseController@delete');
     Route::get('/choose/{id}','PostchooseController@updateForm');
     Route::post('/choose/update','PostchooseController@update');
-    Route::post('/addnewstu','PostchooseController@addnewstu');
+    Route::post('/addnewstu','PostchooseController@addnewstu')->name('add_stu');
     Route::get('/addnewstu', function () {
         return view('addnewstu');
     });

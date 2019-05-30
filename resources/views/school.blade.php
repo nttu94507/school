@@ -65,7 +65,7 @@
     </head>
     <body>
     NEW
-    <input type=button value="新增學生" onClick = "location.href = '/addnewstu' ">
+    <input type=button value="新增學生" onClick = "location.href = '{{route('add_stu')}}'">
     <input type=button value="新增課程" onClick = "location.href = '/addnewcla' ">
        <table border=1>
        
@@ -87,6 +87,7 @@
             }
             //-->
             </script>
+            @if(isset($data))
             @foreach($data as $item)
             <tr>
                 <td>{{$item->id}}</td>
@@ -98,6 +99,7 @@
                 <td><a href="/choose/delete/{{$item->id}}">刪除</a></td>
             </tr>
             @endforeach
+            @endif
 
 
     </table>
@@ -110,15 +112,19 @@
             -->
         
             <select name="poststudent_id">
+            @if(isset($data))
                 @foreach($poststudents as $student)
                 <option value="{{ $student->id }}">{{ $student->studentname }}</option>
                 
                 @endforeach
+            @endif
             </select>    
             <select name="postclass_id">
+            @if(isset($data))
                 @foreach($postclasses as $clsaa)
                 <option value="{{ $clsaa->id }}">{{ $clsaa->classname }}{{$clsaa->classtime}}</option>
                 @endforeach
+            @endif
             </select>   
 
             <input type=submit value="SEND">

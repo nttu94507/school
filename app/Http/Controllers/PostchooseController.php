@@ -25,7 +25,7 @@ class PostchooseController extends Controller
     
      
     public function getall(){
-        $postschoose = Postchoose::all();
+        // $postschoose = Postchoose::all();
         //$info = compact($postschoose);
         // return view('school',compact($postschoose));
 
@@ -55,8 +55,8 @@ class PostchooseController extends Controller
          /****
           * add postclass , poststudent 
           ****/
-          $poststudents = Poststudent::all();
-          $postclasses = Postclass::all();
+        //   $poststudents = Poststudent::all();
+        //   $postclasses = Postclass::post_class();
 
 
 
@@ -64,8 +64,8 @@ class PostchooseController extends Controller
         //     'view_id'=>$view_id,'view_student'=>$view_student,'view_class'=>$view_class
         // ];
 
-        $data = [ 'data'=>$postschoose,'poststudents'=>$poststudents,'postclasses'=>$postclasses];//'postschoose'=>$postschoose,
-        return view('school',$data);
+        // $data = [ 'data'=>$postschoose,'poststudents'=>$poststudents,'postclasses'=>$postclasses];//'postschoose'=>$postschoose,
+        return view('school');
     }
 
     public function id(){
@@ -125,7 +125,7 @@ class PostchooseController extends Controller
 
     public function addnewstu(Request $request) {
         $stuinfo = $request->input();
-        // dd($stuinfo);
+        dd($stuinfo);
         $newstu = new Poststudent;
         $newstu->studentname = $stuinfo['stuname'];
         $newstu->gender = $stuinfo['stugen'];
